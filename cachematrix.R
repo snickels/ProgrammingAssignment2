@@ -1,8 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
-## todo: check google R code style 
+## Calculates, caches and recalls inverse matrix:
+## First function "makeCacheMatrix" creates a "matrix", which actually is a
+## list of functions.
+## Second function "cacheSolve" recalls inverse matrix if available. If not,
+## it calculates and stores inverse matrix.
 
-## Write a short comment describing this function
+## TODO: check google R code style 
+
+
 ## creates a special "matrix" object
 ## that can cache its inverse:
 ## a list containing a function to
@@ -32,7 +36,6 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
 ## checks if inverse matrix is cached
 ## yes: retrieve from cache
 ## no: calculate inverse matrix
@@ -44,10 +47,9 @@ cacheSolve <- function(x, ...) {
     message("getting cached data")
     return(inverse.matrix)
   }
-  data <- x$get()
+  data <- x$getInput()
   inverse.matrix <- solve(data, ...)
   
   x$setInverse(inverse.matrix)
   inverse.matrix
-  
 }

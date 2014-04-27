@@ -19,6 +19,16 @@ cachemean(some.vector)
 source(cachematrix.R)
 
 # some random matrix
+rm(testmatrix)
 set.seed(42)
-rnorm(4)
-rnorm(4)
+testmatrix <- matrix(c(rnorm(5),
+                       rnorm(5),
+                       rnorm(5),
+                       rnorm(5),
+                       rnorm(5)),
+                     nrow = 5, ncol = 5)
+testmatrix
+
+some.matrix <- makeCacheMatrix(testmatrix)
+cacheSolve(some.matrix)
+## looks ok
